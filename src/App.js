@@ -28,18 +28,20 @@ function App() {
       
       <Header setCards={setCards}></Header>
 
-      <div className = "cards-container">
-        {cards ?
-          cards.map((card) => {
-            return (
-              <Card key={card.id} {...card}></Card>
-            )
-          })
 
-          : <Error></Error>
-        }
+      <div className="container"> 
+        <div className = "cards-container">
+          {cards ?
+            cards.map((card) => {
+              return (
+                <Card key={card.id} {...card}></Card>
+              )
+            })
+
+            : <Error></Error>
+          }
+        </div>
       </div>
-
     </div>
   );
 }

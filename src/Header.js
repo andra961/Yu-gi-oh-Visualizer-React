@@ -29,7 +29,7 @@ function Header ({setCards}) {
 
     return (
         <header>
-            <h1>BEAUTIFUL APP</h1>
+            <h1>CARD VISUALIZER</h1>
             <form onSubmit={onSubmit}>
                 <input
                     type="Text" 
