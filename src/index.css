@@ -64,11 +64,10 @@ body {
   left: 0;
   right: 0;
   padding: 0.5rem;
-  transform: translateY(100%);
+  transform: translateY(102%);
   overflow-y: scroll;
   transition: transform 0.3s ease-in-out;
   will-change: transform;
-  max-height: 100%;
 }
 
 .card:hover .cardDesc{
@@ -103,6 +102,7 @@ input {
   font-size: 1rem;
   padding-left: 6px;
   border: 0;
+  text-align: center;
 }
 
 .stats {

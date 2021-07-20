@@ -8,43 +8,42 @@ import Error from "./Error"
 
 import Spinner from "./spinner"
 
-import APICALL from "./api"
+import API from "./api"
 
 function App() {
 
-
-  const [isLoading,setIsLoading] = useState(false)
+  const [searchTerm,setSearchTerm] = useState("")
   const [cards,setCards] = useState([])
+  const [isLoading,setIsLoading] = useState(false)
   const [isError,setIsError] = useState(false)
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch(APICALL)
-    .then((response) => {
-      if(response.ok) return response.json()
 
-      else throw new Error("something went wrong")
-    })
-    .then((results) => {
-      setCards(results.data.slice(0,100))
-      setIsLoading(false)
+    const loadCards = async () => {
+      setIsLoading(true)
       setIsError(false)
-    })
-    .catch((e) => {
-      setIsError(true)
+      try{
+
+        const result = await API.loadCards(searchTerm)
+        setCards(result)
+      }
+      catch (error){
+        setIsError(true)
+      }
+
       setIsLoading(false)
-    })
-  },[])
+    }  
+
+    loadCards()
+
+  },[searchTerm])
 
 
 
   return (
     <div className="App">
       
-      <Header 
-        setCards={setCards} 
-        setIsLoading={setIsLoading} 
-        setIsError={setIsError} />
+      <Header setSearchTerm = {setSearchTerm} />
 
       {!isLoading && !isError &&
        (<div className="container"> 
