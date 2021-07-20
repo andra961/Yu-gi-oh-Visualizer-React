@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 import APICALL from "./api"
 
-function Header ({setCards}) {
+function Header ({setCards, setIsLoading, setIsError}) {
 
     const [search, setSearch] = useState("")
 
@@ -11,18 +11,42 @@ function Header ({setCards}) {
     const onSubmit = (e) => {
         e.preventDefault()
         if(search){
+            setIsLoading(true)
             fetch(APICALL + "fname=" + search)
-            .then((response) => response.json())
+            .then((response) => {
+                if(response.ok) return response.json()
+
+                else throw new Error("something went wrong")
+            })
             .then((results) => {
-                setCards(results.data)  
+
+                setCards(results.data)
+                setIsLoading(false)  
+                setIsError(false)
+
+            })
+            .catch((e) => {
+                setIsError(true)
+                setIsLoading(false)
             })
         }
 
         else{
+            setIsLoading(true)
             fetch(APICALL)
-            .then((response) => response.json())
+            .then((response) => {
+                if(response.ok) return response.json()
+
+                else throw new Error("something went wrong")
+            })
             .then((results) => {
-                setCards(results.data.slice(0,100))   
+                setCards(results.data.slice(0,100))
+                setIsLoading(false)
+                setIsError(false)   
+            })
+            .catch((e) => {
+                setIsError(true)
+                setIsLoading(false)
             })
         }
     }
