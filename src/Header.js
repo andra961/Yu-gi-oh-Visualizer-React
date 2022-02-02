@@ -1,31 +1,28 @@
-import React, {useState} from "react"
+import React, { useEffect, useState } from "react";
 
+function Header({ setSearchTerm }) {
+  const [search, setSearch] = useState("");
 
-function Header ({setSearchTerm}) {
+  const onChangeHandle = (e) => setSearch(e.target.value);
 
-    const [search, setSearch] = useState("")
+  useEffect(() => {
+    const timer = setTimeout(() => setSearchTerm(search), 500);
 
-    const onChangeHandle = (e) => setSearch(e.target.value)
+    return () => clearTimeout(timer);
+  }, [search, setSearchTerm]);
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-        setSearchTerm(search)
-    }
-
-    return (
-        <header>
-            <h1>CARD VISUALIZER</h1>
-            <form onSubmit={onSubmit}>
-                <input
-                    type="Text" 
-                    value={search}
-                    id="search" 
-                    onChange={onChangeHandle}
-                    placeholder="Search...">
-                </input>
-            </form>        
-        </header>
-    )
+  return (
+    <header>
+      <h1>CARD VISUALIZER</h1>
+      <input
+        type="Text"
+        value={search}
+        id="search"
+        onChange={onChangeHandle}
+        placeholder="Search..."
+      ></input>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
