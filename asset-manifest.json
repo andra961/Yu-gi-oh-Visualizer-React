@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Yu-gi-oh-Visualizer-React/static/css/main.cdc9b720.chunk.css",
-    "main.js": "/Yu-gi-oh-Visualizer-React/static/js/main.f590be59.chunk.js",
-    "main.js.map": "/Yu-gi-oh-Visualizer-React/static/js/main.f590be59.chunk.js.map",
+    "main.css": "/Yu-gi-oh-Visualizer-React/static/css/main.501f3257.chunk.css",
+    "main.js": "/Yu-gi-oh-Visualizer-React/static/js/main.8afc57b5.chunk.js",
+    "main.js.map": "/Yu-gi-oh-Visualizer-React/static/js/main.8afc57b5.chunk.js.map",
     "runtime-main.js": "/Yu-gi-oh-Visualizer-React/static/js/runtime-main.54987f68.js",
     "runtime-main.js.map": "/Yu-gi-oh-Visualizer-React/static/js/runtime-main.54987f68.js.map",
     "static/js/2.0e3f5cf6.chunk.js": "/Yu-gi-oh-Visualizer-React/static/js/2.0e3f5cf6.chunk.js",
     "static/js/2.0e3f5cf6.chunk.js.map": "/Yu-gi-oh-Visualizer-React/static/js/2.0e3f5cf6.chunk.js.map",
     "index.html": "/Yu-gi-oh-Visualizer-React/index.html",
-    "static/css/main.cdc9b720.chunk.css.map": "/Yu-gi-oh-Visualizer-React/static/css/main.cdc9b720.chunk.css.map",
+    "static/css/main.501f3257.chunk.css.map": "/Yu-gi-oh-Visualizer-React/static/css/main.501f3257.chunk.css.map",
     "static/js/2.0e3f5cf6.chunk.js.LICENSE.txt": "/Yu-gi-oh-Visualizer-React/static/js/2.0e3f5cf6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.54987f68.js",
     "static/js/2.0e3f5cf6.chunk.js",
-    "static/css/main.cdc9b720.chunk.css",
-    "static/js/main.f590be59.chunk.js"
+    "static/css/main.501f3257.chunk.css",
+    "static/js/main.8afc57b5.chunk.js"
   ]
 }
