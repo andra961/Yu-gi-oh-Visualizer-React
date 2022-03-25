@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Card from "./Card";
 
@@ -13,9 +13,29 @@ import useCardFetch from "./hooks/useCardfetch";
 function App() {
   const { cards, setSearchTerm, isLoading, isError } = useCardFetch();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScrollEvent = () => {
+      if (window.scrollY > 200) {
+        setIsScrolled(true);
+      }
+
+      if (window.scrollY <= 200) {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScrollEvent);
+
+    return () => {
+      window.removeEventListener("scroll", onScrollEvent);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <Header setSearchTerm={setSearchTerm} />
+      <Header setSearchTerm={setSearchTerm} isScrolled={isScrolled} />
 
       {!isLoading && !isError && (
         <div className="container">

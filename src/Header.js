@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Header({ setSearchTerm }) {
+function Header({ setSearchTerm, isScrolled }) {
   const [search, setSearch] = useState("");
 
   const onChangeHandle = (e) => setSearch(e.target.value);
@@ -12,8 +12,10 @@ function Header({ setSearchTerm }) {
   }, [search, setSearchTerm]);
 
   return (
-    <header>
-      <h1>CARD VISUALIZER</h1>
+    <header className={isScrolled ? "headerSmall" : ""}>
+      <h1 className={isScrolled ? "hiddenMobile headerTitle" : "headerTitle"}>
+        CARD VISUALIZER
+      </h1>
       <input
         type="Text"
         value={search}

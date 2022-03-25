@@ -96,6 +96,11 @@ header {
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 0px 5px 5px rgba(41, 41, 41, 1);
+  transition: max-height 10s;
+}
+
+.headerSmall {
+  padding: 10px 1rem;
 }
 
 input {
@@ -160,6 +165,12 @@ p {
 
 @media only screen and (max-width: 600px) {
   header {
+    padding: 10px 0;
     flex-direction: column;
+  }
+
+  .hiddenMobile {
+    height: 0;
+    opacity: 0;
   }
 }
